@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap. */
+@import '~bootstrap/scss/bootstrap'
+
+/* Importing Utilities. */
+@import '~sass/utilities'
+
+/* Global styles */
+input[type="date"]
+	color: #ffffff
+
+input[type="date"]::before
+	color: #666666
+	content: attr(placeholder)
+
+input[type="date"]:focus,
+input[type="date"]:valid
+	color: #000000
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before
+	content: "" !important

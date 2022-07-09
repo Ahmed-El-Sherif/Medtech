@@ -1,0 +1,23 @@
+<div class="col h-100">
+  <div class="card border bg-light shadow-sm h-100">
+    <div class="row g-0 p-2">
+      <div *ngIf="hasAvatar" [ngClass]="{'card-img-top': !sideAvatar}" class="col-4 center-img-v">
+        <img [src]="item.avatar??'./../../../../assets/images/avatar.jpg'" alt="avatar" class="rounded-circle w-100 square-ratio border border-3 shadow-lg p-1">
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <p *ngFor="let field of fields" class="card-text">
+            <span class="fw-bold">{{field.title}}: </span>
+            <span *ngIf="field.clickable else unclickable" class="clickable text-primary text-nowrap" (click)="onFieldClick(field.title)">
+              {{item[field.property]}}
+              <i class="fas fa-edit align-middle"></i>
+            </span>
+            <ng-template #unclickable>
+              <span class="text-nowrap">{{field.type == 4 ? (item[field.property] | age) : item[field.property]}}</span>
+            </ng-template>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
